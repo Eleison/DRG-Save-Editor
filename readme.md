@@ -1,14 +1,21 @@
 # Deep Rock Galactic Save Editor
-This is a standalone DRG save editor written in python (3.6.12), using PyQt5 (5.9.2) and PySide2 (5.15.2) and packaged using the [fman build system](https://build-system.fman.io). 
 
-## THIS IS NOT UPDATED FOR UPDATE 35! THERE ARE NO GUARANTEES IT WILL WORK. USE AT YOUR OWN RISK!
+This is a standalone DRG save editor written in python (3.6.12), using PyQt5 (5.9.2) and PySide2 (5.15.2) and packaged using the [fman build system](https://build-system.fman.io).
+
+## There are likely to be bugs, see the Known Issues and Troubleshooting section!
+## I have largely moved on from this project, so no new features are planned, no major updates are in the pipeline, and only simple bug fixes will be performed. You are welcome to fork and continue the project on your own, just give credit.
 
 ## Requirements
 - Windows 7 (or compatibility mode)
 - ???
 
 ## Installation
-Download the "DRG Save Editor.zip" file and extract the zip file and start the editor using the "start editor.cmd" batch file. 
+Download the [DRG Save Editor.zip](https://github.com/robertnunn/DRG-Save-Editor/blob/master/DRG%20Save%20Editor.zip) file and extract the zip file and start the editor using the "start editor.cmd" batch file. 
+
+
+## Known Issues
+- Due to a change in how overclocks are stored adding overclocks is broken and will completely reset your save if you try it. As such, adding OCs has been disabled and will not happen, even if you somehow manage to add some to the "Acquired but unforged" section.
+- The editor works by looking for specific values in the raw data of the save, it doesn't decode the data into a nice, neat python object. As a result if certain things aren't present in the save (e.g., >0 forged overclocks, certain resources) the editor will malfunction and give nonsensical results. The solution is to acquire at least one of the resources in game _then_ use the editor.
 
 ## Troubleshooting
 If the editor fails to start, please add a second line to the "start editor.cmd" that's just "pause". This will let you see any error messages that will be necessary for bug fixes. 
@@ -29,12 +36,31 @@ Some notes:
 
 ![main_screen](sshot.png)
 ## Changelog
+- v1.5
+    - Updated editor for Season 2
+    - Can adjust season xp and scrip
+    - Can edit amount of phazyonite
+    - Disabled adding OCs as it's currently broken and it's more effort than I'm willing to put in to figure it out. See the comments in main.py (line 767) if you're interested.
+    - Missing data for the new overclocks (for the new secondary weapons)
+- v1.4.4
+    - Added option to select all files when opening save files
+- v1.4.3
+    - Fixed a bug that prevented editing of XP levels for dwarves
+- v1.4.2
+    - Fixed a bug that would cause the editor to hang when opening old saves
+- v1.4.1
+    - Fixed lack of new OCs showing up
+- v1.4
+    - Updated for update 35
+        - Added new weapon overclocks (special thanks to [Eleison](https://github.com/Eleison) for all the new OC data)
+        - Added support for data cell resource
+        - Added support for season xp/level and scrip
 - v1.3.7
-    - Fixed a bug where the editor would crash with the microsoft store version of the game.
+    - Fixed a bug where the editor would crash with the microsoft store version of the game
 - v1.3.6
-    - Fixed a bug where an unexpected number of resources in the save file would throw off reading/writing of new values. The editor now reads how many entries there are and adjusts accordingly.
+    - Fixed a bug where an unexpected number of resources in the save file would throw off reading/writing of new values. The editor now reads how many entries there are and adjusts accordingly
 - v1.3.5
-    - Fixed a bug where promotions beyond Legendary 3 would be lost when saving. As long as the promotion is set to "Legendary 3+" before saving, the original number of promotions (and thus player rank) is preserved.
+    - Fixed a bug where promotions beyond Legendary 3 would be lost when saving. As long as the promotion is set to "Legendary 3+" before saving, the original number of promotions (and thus player rank) is preserved
 - v1.3.4
     - Fixed a bug related to editing perk points when using a new save or a save that doesn't have any available perk points
     - Added player rank calculation and rank title to the classes area

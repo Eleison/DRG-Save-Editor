@@ -1376,11 +1376,11 @@
         "weapon": "'Hurricane' Guided Rocket System",
         "name": "Fragmentation Missiles",
         "cost": {
-            "credits": 0,
-            "bismor": 0,
-            "croppa": 0,
+            "credits": 7150,
+            "bismor": 100,
+            "croppa": 135,
             "enor": 0,
-            "jadiz": 0,
+            "jadiz": 60,
             "magnite": 0,
             "umanite": 0
         }
@@ -1733,6 +1733,20 @@
             "jadiz": 0,
             "magnite": 80,
             "umanite": 100
+        }
+    },
+    "80DEA90AD5F3174695138FF47A32A96A": {
+        "class": "Gunner",
+        "weapon": "Armskore Coil Gun",
+        "name": "Hellfire",
+        "cost": {
+            "credits": 8700,
+            "bismor": 0,
+            "croppa": 125,
+            "enor": 80,
+            "jadiz": 1000,
+            "magnite": 0,
+            "umanite": 0
         }
     }
 }
